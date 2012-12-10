@@ -10,21 +10,20 @@
     <apex:includeScript value="{!URLFOR($Resource.briteapp, 'SampleSF/js/brite.js')}"/>
     <apex:includeScript value="{!URLFOR($Resource.briteapp, 'SampleSF/js/app.js')}"/>
     <apex:includeScript value="{!URLFOR($Resource.briteapp, 'SampleSF/js/MainScreen.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.briteapp, 'SampleSF/js/Top.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.briteapp, 'SampleSF/js/Contacts.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.briteapp, 'SampleSF/js/ContactInfo.js')}"/>
     <script>
         brite.config.tmplPath = "{!URLFOR($Resource.briteapp, 'SampleSF/tmpl/')}";
         jQuery.noConflict();
         var $ = jQuery;
     </script>
     
-    <apex:pageBlock id="bodyPage">
-        Hello {!$User.FirstName}!
-    </apex:pageBlock>
-    
     <script type="text/javascript">
          	console.log(Visualforce);
          $(document).ready(function() {    
 	    	Visualforce = Visualforce;
-             brite.display("MainScreen",".pbBody");
+             brite.display("MainScreen","#bodyCell");
         });
         function getRemoteContact() {
             Visualforce.remoting.Manager.invokeAction(

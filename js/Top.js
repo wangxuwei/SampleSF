@@ -1,21 +1,19 @@
 ;(function() {
 
 	/**
-	 * View: MainScreen
+	 * View: Top
 	 *
 	 */
     (function ($) {
-        brite.registerView("MainScreen",  {loadTmpl:true}, {
+        brite.registerView("Top",  {loadTmpl:true,parent:".MainScreen-header"}, {
             create:function (data, config) {
-                var $html = $($("#tmpl-MainScreen").html());
-                			var $e = $($html);
-                			return $e;
+                var $html = $($("#tmpl-Top").html());
+               	var $e = $($html);
+                return $e;
             },
             postDisplay:function (data, config) {
                 var view = this;
                 var $e = view.$el;
-                brite.display("Top");
-                brite.display("Contacts");
             },
             events:{
             },

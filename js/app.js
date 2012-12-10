@@ -1,14 +1,15 @@
 var app = app || {};
 (function($) {
 	
-	app.getRemoteData = function(remoteMethod,params){
+	app.invokeRemote = function(remoteMethod){
 		var dfd = $.Deferred();
-		params = params || [];
 		var paramsArray = [];
 		var action = "CustomControl." + remoteMethod;
 		paramsArray.push(action);
 		
-        paramsArray = paramsArray.concat(params);
+		for(var i = 1; i < arguments.length; i++){
+			paramsArray.push(arguments[i]);
+		}
         
 		var resultFunc = function(result, event){
             	dfd.resolve(result);
