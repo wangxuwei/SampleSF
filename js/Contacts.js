@@ -7,9 +7,9 @@
     (function ($) {
         brite.registerView("Contacts",  {loadTmpl:true,parent:".MainScreen-main"}, {
             create:function (data, config) {
-                var $html = $($("#tmpl-Contacts").html());
-                			var $e = $($html);
-                			return $e;
+                var $html = app.render("#tmpl-Contacts",data);
+                var $e = $($html);
+                return $e;
             },
             postDisplay:function (data, config) {
                 var view = this;
@@ -55,7 +55,7 @@
         			obj.index = i;
         			obj.type="Contact";
         			console.log(list);
-        			var $item = $($("#tmpl-Contacts-rowItem").render(obj));
+        			var $item = app.render("#tmpl-Contacts-rowItem",obj);
         			$tbody.append($item);
         		}
 			});

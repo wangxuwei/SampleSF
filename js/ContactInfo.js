@@ -24,7 +24,7 @@
 			dfd.done(function(contact) {
 				console.log(contact);
 				view.contactId = contact.Id || null;
-				var $html = $($("#tmpl-ContactInfo").render(contact));
+				var $html = app.render("#tmpl-ContactInfo",contact);
 				//show a screen to prevent use click other places
 				view.$screen = $("<div class='notTransparentScreen'></div>").appendTo("body");
 				createDfd.resolve($html);

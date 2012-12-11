@@ -1,6 +1,11 @@
 var app = app || {};
 (function($) {
 	
+	app.render = function(templateName,data){
+		data = data || {};
+		return $(Handlebars.compile($(templateName).html())(data));
+	}
+	
 	app.invokeRemote = function(remoteMethod){
 		var dfd = $.Deferred();
 		var paramsArray = [];
