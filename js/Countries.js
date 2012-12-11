@@ -1,13 +1,13 @@
 ;(function() {
 
 	/**
-	 * View: Contacts
+	 * View: Countries
 	 *
 	 */
     (function ($) {
-        brite.registerView("Contacts",  {loadTmpl:true,emptyParent:true,parent:".MainScreen-main"}, {
+        brite.registerView("Countries",  {loadTmpl:true,emptyParent:true,parent:".MainScreen-main"}, {
             create:function (data, config) {
-                var $html = app.render("#tmpl-Contacts",data);
+                var $html = app.render("#tmpl-Countries",data);
                 var $e = $($html);
                 return $e;
             },
@@ -19,21 +19,21 @@
             },
             events:{
             	"click;.btnAdd":function(e){
-            		brite.display("ContactInfo",null,{id:null});
+            		brite.display("CountryInfo",null,{id:null});
             	},
             	"click;.btnEdit":function(e){
             		var view = this;
             		var $el = view.$el;
             		var $btn = $(e.currentTarget);
             		var id = $btn.bEntity().id;
-            		brite.display("ContactInfo",null,{id:id});
+            		brite.display("CountryInfo",null,{id:id});
             	},
             	"click;.btnDelete":function(e){
             		var view = this;
             		var $el = view.$el;
             		var $btn = $(e.currentTarget);
             		var id = $btn.bEntity().id;
-            		app.invokeRemote("deleteContact",id);
+            		app.invokeRemote("deleteCountryCustom",id);
             		refresh.call(view);
             	}
             },
@@ -52,13 +52,13 @@
         	var view = this;
         	var $e = view.$el;
         	var $tbody = $e.find(".lists").empty();
-        	app.invokeRemote("listContacts").done(function(list){
+        	app.invokeRemote("listCountryCustoms").done(function(list){
         		for(var i = 0; i < list.length; i++){
         			var obj = list[i];
         			obj.index = i+1;
-        			obj.type="Contact";
+        			obj.type="Country";
         			console.log(list);
-        			var $item = app.render("#tmpl-Contacts-rowItem",obj);
+        			var $item = app.render("#tmpl-Countries-rowItem",obj);
         			$tbody.append($item);
         		}
 			});
