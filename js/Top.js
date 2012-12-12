@@ -19,8 +19,11 @@
             events:{
             	"click;.nav li":function(e){
             		var view = this;
+            		var $e = view.$el;
             		var $li = $(e.currentTarget);
             		var nav = $li.attr("data-nav");
+            		$e.find("li").removeClass("active");
+            		$li.addClass("active");
             		if(nav == "contact"){
             			brite.display("Contacts");
             		}else if(nav == "countrycustom"){

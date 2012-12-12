@@ -1,28 +1,28 @@
 <script id="tmpl-Contacts" type="text/html">
     <div class="Contacts">
     	<div>
-    		<span class="btn btnAdd">Add</span>
+    		<span class="btn btnAdd"><i class="icon-plus"></i>Add</span>
     	</div>
-    	<table class="table table-bordered table-hover">
-	        <thead>
-	          <tr>
-	          	<th>Index</th>
-	          	<th>Name</th>
-	          	<th></th>
-	          </tr>
-	        </thead>
-	        <tbody class="lists">
-	        </tbody>
-	  </table>
+    	<div class="dataTable">
+	        <div class="thead">
+	          <div class="trow">
+	          	<div class="tcell">Index</div>
+	          	<div class="tcell">Name</div>
+	          	<div class="tcell"></div>
+	          </div>
+	        </div>
+	        <div class="tbody lists">
+	        </div>
+	  </div>
     </div>
 </script>
 <script id="tmpl-Contacts-rowItem" type="text/html">
-	 <tr data-entity="{{type}}" data-entity-id="{{Id}}">
-	     <td >{{index}}</td>
-	     <td >{{Name}}</td>
-	     <td >
-	     	<span class="btn btnEdit">Edit</span>
-	     	<span class="btn btn-warning btnDelete">Delete</span>
-	     </td>
-     </tr>
+	 <div class="trow" data-entity="{{type}}" data-entity-id="{{Id}}">
+	     <div class="tcell">{{index}}</div>
+	     <div class="tcell">{{Name}}</div>
+	     <div class="tcell">
+	     	<span class="btn btnEdit"><i title="Edit" class="icon-pencil"></i> Edit</span>
+	     	<span class="btn btn-danger btnDelete"><i title="Delete" class="icon-trash"></i> Delete</span>
+	     </div>
+     </div>
 </script>

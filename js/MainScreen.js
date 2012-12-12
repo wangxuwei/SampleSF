@@ -25,6 +25,7 @@
 
             daoEvents:{
             }
+            
         });
     })(jQuery);
 
